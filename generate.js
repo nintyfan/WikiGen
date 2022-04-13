@@ -32,6 +32,21 @@ function processHash() {
         }
      }
    }
+   
+   var el = document.querySelectorAll('#sl-WikiGen-configure-options-inside input[type="checkbox"]');
+   
+   var params = document.location.hash.substr(1).split('#');
+   for (var i = 0; i < el.length; ++i) {
+     
+     if (-1 < params.indexOf(el[i].name) ) {
+       
+       el[i].checked = true; 
+     }
+     else {
+       
+       el[i].checked = false;
+     }
+   }
 }
 
 
@@ -94,4 +109,20 @@ function onLoad() {
   el.innerHTML = document.querySelector('#sl-WikiGen-configure-options').innerHTML;
   
   document.querySelector('#sl-WikiGen-configure-options').parentNode.removeChild(document.querySelector('#sl-WikiGen-configure-options'));
+  
+  
+  el = document.querySelectorAll('#sl-WikiGen-configure-options-inside input[type="checkbox"]');
+  
+  var params = document.location.hash.substr(1).split('#');
+  for (var i = 0; i < el.length; ++i) {
+    
+    if (-1 < params.indexOf(el[i].name) ) {
+      
+      el[i].checked = true; 
+    }
+    else {
+      
+      el[i].checked = false;
+    }
+  }
 }
